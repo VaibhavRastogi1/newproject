@@ -1,0 +1,146 @@
+{% extends 'VRmaker/base.html' %}
+{% load static %}
+{% block title %}
+<title>LogIn</title>
+{% endblock %}
+{% block content %}
+{% block style %}
+<style>
+    body {
+        background-color: white;
+        color: blue;
+    }
+</style>
+{% endblock %}
+<div>
+    <h2 class="alert alert-danger text-center">Resume Uploader</h2>
+</div>
+{% if messages %}
+{% for message in messages %}
+<p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+{% endfor %}
+{% endif %}
+<h4>Hi {{request.user.first_name}} {{request.user.last_name}}</h4>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 m-3 ">
+            <form action="" method="post" class=" shadow p-5" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="name" class="form-control" required id="exampleInputname"
+                        placeholder="Enter Your Name"><b><span id="nameerror" class="error"></span></b>
+
+                </div>
+                <div class="form-group">
+                    <label>Date_of_birth</label>
+                    <input type="date" name="dob" class="form-control" required id="exampleInputdate"
+                        placeholder="Enter Date_of_birth"><b><span id="dateerror" class="error"></span></b>
+
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" class="form-control" required id="exampleInputEmail1"
+                        placeholder="Enter Email Address"><b><span id="emailerror" class="error"></span></b>
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Gender</label><br>
+                    <input type="radio" name="gender" value="male"> <span class="text-dark">Male</span>
+                    <input type="radio" name="gender" value="female"> <span class="text-dark">Female</span>
+
+                </div>
+                <div class="form-group">
+                    <label>Locality</label>
+                    <input type="text" name="locality" class="form-control" required id="exampleInputlocality"
+                        placeholder="Enter Locality"><b><span id="localerror" class="error"></span></b>
+
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" name="city" class="form-control" required id="exampleInputcity"
+                        placeholder="Enter City"><b><span id="cityerror" class="error"></span></b>
+
+                </div>
+                <div class="form-group">
+                    <label>Pincode</label>
+                    <input type="number" name="pincode" class="form-control" required id="exampleInputpincode"
+                        placeholder="Enter Pincode"><b><span id="pinerror" class="error"></span></b>
+
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <select name="state" id="state" required class="form-control">
+                        <option value="SelectState">Select State</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="auMadhya Pradeshdi">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                    </select><b><span id="stateerror" class="error"></span></b>
+
+                </div>
+                <div class="form-group">
+                    <label>Contact</label>
+                    <input type="text" name="contact" class="form-control" required id="exampleInputcontact"
+                        placeholder="Enter Mobile_number"><b><span id="moberror" class="error"></span></b>
+                </div>
+                <div class="form-group">
+                    <label for="preferredJL">Preferred Job Location</label>
+                    <select name="state" id="state" required class="form-control">
+                        <option value="SelectState">Select Location</option>
+                        <option value="Noida">Noida</option>
+                        <option value="Banglore">Banglore</option>
+                        <option value="Pune">Pune</option>
+                        <option value="Lucknow">Lucknow</option>
+                        <option value="Sitapur">Sitapur</option>   </select><b><span id="locationerror" class="error"></span></b>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Profile Image:</label>
+                    <input type="file" name="image" class="form-control-image" id="exampleFormControlimage"><b><span
+                            id="imageerror" class="error"></span></b>
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+                <a href="{% url 'logout' %}" class=" btn btn-danger">Logout</a>
+
+            </form>
+
+        </div>
+        <div class="col-sm-3 m-3">
+            <h3 class="text-center text-dark mb-4"><u>List of Resume</u></h3>
+            {% for data in datas %}
+            {{data.id}}:<a href="{% url 'showup' data.id %}">{{data.name}}.resume</a><br>
+            <hr>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<script>
+
+</script>

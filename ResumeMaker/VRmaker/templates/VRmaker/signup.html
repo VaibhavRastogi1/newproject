@@ -1,0 +1,60 @@
+{% extends 'VRmaker/base.html' %}
+{% load static %}
+{% block title %}
+<title>LogIn</title>
+<style>
+    body{
+        color: blue;
+    }
+
+</style>
+{% endblock %}
+{% block content %}
+<div class="mt-3">
+    <h2 class="alert alert-info">Signup Here</h2>
+</div>
+<DIV class="container">
+    <div class="row">
+        <div class="col-sm-10 m-3 ">
+            <form action="" method="post" class="m-3">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>*First Name</label>
+                    <input type="text" name="first_name" required class="form-control" id="exampleInputEmail1" placeholder="Enter First Name">
+                </div>
+                <div class="form-group">
+                    <label>*Last Name</label>
+                    <input type="text" name="last_name" required class="form-control" id="exampleInputEmail1" placeholder="Enter Last Name">
+                </div>
+                <div class="form-group">
+                    <label>*Email Address</label>
+                    <input type="email" name="email" required class="form-control" id="exampleInputEmail1" placeholder="Enter Email Address">
+                </div>
+                <div class="form-group">
+                    <label>*Mobile Number</label>
+                    <input type="number" name="phone_number" required class="form-control" id="exampleInputEmail1" placeholder="Enter Mobile Number">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">*Password</label>
+                    <input type="password" name="password" required class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">*Password(again)</label>
+                    <input type="password" name="con_password" required class="form-control" id="exampleInputPassword1" placeholder="Enter Password again">
+                </div>
+                <button type="submit" class="btn btn-primary">Signup</button>
+                <a href="{% url 'home' %}" class=" btn btn-danger">cancel</a>
+                {% if messages %}
+                {% for message in messages %}
+                <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+                {% endfor %}
+                {% endif %}
+            </form>
+            </form>
+        </div>
+    </div>
+</DIV>
+
+
+
+{% endblock %}

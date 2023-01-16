@@ -1,0 +1,42 @@
+{% extends 'VRmaker/base.html' %}
+{% load static %}
+{% block title %}
+<title>Resume Detail</title>
+{% endblock %}
+{% block content %}
+{% block style %}
+<style>
+    body {
+        background-color: white;
+        color: blue;
+    }
+</style>
+{% endblock %}
+<div>
+    <h2 class="alert alert-danger text-center">Candiate Details</h2>
+</div>
+<div class="row"> 
+    <div class="col-sm-10 shadow p-5 offset-sm-2">
+        <h3 class="text-center" ><u>Resume</u></h3>
+        <p class="text-end">Application No:{{candidates.id}}</p>
+        <img src="{{candidates.image.url}}" alt="" width="150" height="150" class="img-fluid img-thumbnail mt-2 float-end">
+        <p>Name:{{candidates.name}}</p>
+        <p>Date_of_birth:{{candidates.dob}}</p>
+        <p>Email Address:{{candidates.email}}</p>
+        <p>Gender:{{candidates.gender}}</p>
+        <p>Locality:{{candidates.locality}}</p>
+        <p>City:{{candidates.city}}</p>
+        <p>Pincode:{{candidates.pincode}}</p>
+        <p>State:{{candidates.state}}</p>
+        <p>Contact:{{candidates.contact}}</p>
+        <p>Preferred Job Location:{{candidates.preferredJL}}</p>
+        <a href="{% url 'fillup' %}" class="btn btn-success">Back</a>
+    </div>
+   
+</div>
+
+{% endblock %}
+
+<script>
+
+</script>

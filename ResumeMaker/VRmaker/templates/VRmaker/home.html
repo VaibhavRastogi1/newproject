@@ -1,0 +1,34 @@
+{% extends 'VRmaker/base.html' %}
+{% load static %}
+{% block title %}
+<title>Home</title>
+<style>
+    body{
+        background-color: grey;
+    }
+    .about{
+        margin-top: 30px;
+        background-color: brown;
+        color: antiquewhite;
+    }
+</style>
+{% endblock %}
+
+{% block head %}
+<div class="row text-center">
+    <div class="col-sm-12">
+        <h1 class="text-center alert alert-info">VR Resume Maker</h1>
+    </div>
+</div>
+<div class="text-center">
+<a href="{% url 'login' %}" class="btn btn-success ">Login</a>
+<a href="{% url 'signup' %}" class="btn btn-info">Signup</a>
+</div>
+<div class="about">
+    <h3>About Maker</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, voluptas vel! Ducimus pariatur dignissimos at, corporis unde id, voluptates corrupti quaerat adipisci non minus accusamus accusantium quibusdam rerum voluptatem ipsum dolorum maxime est vero a quasi! Asperiores ducimus commodi reiciendis debitis, eligendi suscipit sed nostrum magni. Optio, necessitatibus rem architecto sint saepe excepturi inventore distinctio ad ea quam aspernatur commodi? Velit natus dicta quaerat molestiae, facere illo? Aliquam eum, omnis a placeat enim ipsum, illo voluptatum soluta minima quam, cum tempore molestiae iusto rem voluptas blanditiis consequuntur accusamus. Repellat nobis aperiam vitae, sed debitis odit enim autem impedit deleniti quaerat eos alias voluptates excepturi hic expedita. Pariatur voluptate fugit earum dicta magni optio nulla natus laudantium voluptates error praesentium porro rerum corporis distinctio quis consequatur libero omnis, repudiandae ab dolorum iusto asperiores recusandae doloremque quasi. Nobis possimus, quas fugit quam, sint, voluptatum minima vel fugiat ab modi laboriosam placeat a provident natus eveniet? Vero accusamus possimus non soluta, recusandae ad tempora architecto a porro doloribus eligendi, quos facilis, dolore atque sit cupiditate ratione excepturi libero consequatur nobis. Fuga harum quo rem voluptates consectetur voluptatem quas, eos officiis neque beatae aliquid ex! Iste iusto reprehenderit, velit quod cum aspernatur impedit sunt illum eos architecto corporis fugiat sit itaque hic ea temporibus veniam odio natus quidem accusantium consequatur dolorem. Blanditiis, facilis. Quo odit non, magni possimus ratione maiores est dicta praesentium saepe? Cumque reiciendis beatae nulla reprehenderit. Praesentium aliquam id eos accusamus corrupti debitis tempore ad, repellendus dolor, eligendi at ratione! Quibusdam, deleniti aperiam dolores, tenetur ea assumenda fugiat consequuntur reprehenderit quia et doloribus nihil maiores laudantium dolore dignissimos architecto. Aut molestias sapiente vero, cupiditate soluta fugiat fugit facilis, quod ex suscipit dolorem nisi, distinctio quae quia. Perferendis blanditiis incidunt repellat, officia veniam, odit aspernatur harum mollitia velit, maxime dolorum iure animi ab quam dolore id inventore nostrum eum repudiandae sit odio nulla corporis est possimus. Sed praesentium officia dicta, fugit omnis ipsum vitae cumque delectus numquam reprehenderit asperiores consequuntur quae voluptate culpa a consequatur nemo placeat ad nostrum sequi! Tempora quia debitis, dicta animi autem accusamus temporibus quasi aut optio soluta distinctio? Similique quod maxime dolor nesciunt recusandae debitis asperiores eius numquam in amet ratione dolorum dolores fugiat tempore quibusdam illo modi esse veritatis minima totam velit cupiditate, tenetur eaque aut. Est dolorum neque culpa ipsa minus omnis vitae saepe commodi inventore adipisci, blanditiis eos fuga, praesentium, nesciunt illum facere recusandae.</p>
+</div>
+<div class="footer">
+    <footer class="text-center">$$$$Vaibhav Rastogi$$$$</footer>
+</div>
+{% endblock  %}
